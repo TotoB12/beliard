@@ -1,2 +1,38 @@
 <!-- <meta http-equiv="Refresh" content="0; url='mailto:antonin@beliard.io'" /> -->
-<h>Hello World!</h>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Time Web App</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 5em;
+        }
+    </style>
+</head>
+<body>
+    <div id="time-display"></div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('time-display').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        // Update the time every second
+        setInterval(updateTime, 1000);
+        updateTime(); // Initial call to avoid delay
+    </script>
+</body>
+</html>
