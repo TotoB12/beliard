@@ -15,9 +15,9 @@
             color: #fff;
             font-family: 'REM', Arial, sans-serif;
             font-size: 5em;
-            overflow: hidden; /* Prevent scrolling in any direction */
-            user-select: none; /* Prevent text selection */
-            touch-action: none; /* Prevent touch interactions */
+            overflow: hidden;
+            user-select: none;
+            touch-action: none;
         }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +36,6 @@
             document.body.style.msUserSelect = 'none';
         }
 
-        // Call the function to disable text selection
         disableTextSelection();
 
         function updateTime() {
@@ -47,12 +46,15 @@
             const timeString = `${hours}:${minutes}:${seconds}`;
 
             document.getElementById('time-display').textContent = timeString;
-            document.title = timeString; // Update the title with the current time
+            document.title = timeString;
         }
 
-        // Update the time and title every second
         setInterval(updateTime, 1000);
-        updateTime(); // Initial call to avoid delay
+        updateTime();
+        
+        document.body.addEventListener('click', function() {
+            window.location.href = 'mailto:antonin@beliard.io';
+        });
     </script>
 </body>
 </html>
