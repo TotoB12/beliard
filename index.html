@@ -28,6 +28,17 @@
     <div id="time-display"></div>
 
     <script>
+        function disableTextSelection() {
+            document.body.setAttribute('unselectable', 'on');
+            document.body.style.userSelect = 'none';
+            document.body.style.MozUserSelect = 'none';
+            document.body.style.webkitUserSelect = 'none';
+            document.body.style.msUserSelect = 'none';
+        }
+
+        // Call the function to disable text selection
+        disableTextSelection();
+
         function updateTime() {
             const now = new Date();
             const hours = String(now.getHours()).padStart(2, '0');
